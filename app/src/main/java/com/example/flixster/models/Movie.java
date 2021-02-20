@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Movie {
     String posterPath;
+    String backgroundPath;
     String title;
     String overview;
 
@@ -16,6 +17,7 @@ public class Movie {
         //(can JSONArray results passed to constructor?)
     public Movie(JSONObject jsonObject) throws JSONException {
         posterPath = jsonObject.getString("poster_path");
+        backgroundPath = jsonObject.getString("backdrop_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
     }
@@ -33,6 +35,10 @@ public class Movie {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     } //alternatively use concatenation ?
 
+    public String getBackgroundPath() {
+        return String.format("https://image.tmdb.org/t/p/w342/%s", backgroundPath);
+    }
+
     public String getOverview() {
         return overview;
     }
@@ -40,4 +46,4 @@ public class Movie {
     public String getTitle() {
         return title;
     }
-};
+}
